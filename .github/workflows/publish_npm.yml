@@ -24,8 +24,6 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - name: replace package name
-        run: sed -i -e 's/@37108/37108/' package.json
       - name: publish to npm registry
         run: npm publish --access public --scope=37108
         env:
