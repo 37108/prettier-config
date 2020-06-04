@@ -4,7 +4,7 @@
 
 ## install
 ```bash
-$ yarn add @37108/prettier-config@1.0.0
+$ yarn add -D @37108/prettier-config
 ```
 
 ## setting
