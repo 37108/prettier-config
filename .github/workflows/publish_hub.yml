@@ -1,0 +1,21 @@
+name: publish image to GitHub registry
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+jobs:
+  publish:
+    name: publish to GitHub registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: set up Node environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com
+      - name: publish to npm registry
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
