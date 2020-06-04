@@ -10,12 +10,21 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: set up Node environment
+      - name: set up Node environment for npm
         uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - name: publish to npm registry
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: set up Node environment for GitHub
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com
+      - name: publish to npm registry
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
