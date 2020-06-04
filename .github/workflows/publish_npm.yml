@@ -27,6 +27,6 @@ jobs:
       - name: replace package name
         run: sed -i -e 's/@37108/37108/' package.json
       - name: publish to npm registry
-        run: npm publish --access public
+        run: npm publish --access public --scope=37108
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
