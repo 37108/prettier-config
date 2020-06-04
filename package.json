@@ -1,5 +1,6 @@
 {
   "name": "@37108/prettier-config",
+  "private": false,
   "version": "1.0.0",
   "main": "index.json",
   "license": "MIT",
